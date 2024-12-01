@@ -1,0 +1,13 @@
+pipeline:
+  build:
+    image: python:3.9
+    dependencies:
+      - pytest
+      - Flask
+  test:
+    framework: pytest
+    coverage: true
+  deploy:
+    docker_registry: your-docker-hub-username
+    container_name: my-python-app
+    exposed_port: 5000

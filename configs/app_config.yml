@@ -1,0 +1,11 @@
+app:
+  name: My Python Application
+  version: 1.0.0
+  port: 5000
+  environment: production
+
+database:
+  host: localhost
+  port: 5432
+  username: admin
+  password: secret_password
