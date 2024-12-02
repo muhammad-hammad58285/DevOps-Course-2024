@@ -1,123 +1,90 @@
-# DevOps Project: CI/CD with Jenkins, Docker, and GitHub
+# DevOps Course 2024
+In this file, I am going to be discussing the things I learned in my DevOps course. It was a fun and exhilarating journey of learning about a new world of possibilities and a new perspective of DevOps and how far it has come.
+# Blogs Summaries
+## Blog 1 [Optimizing Docker for Edge Computing: A Guide to Efficient Deployments](https://medium.com/@muhammadhammad58285/optimizing-docker-for-edge-computing-a-guide-to-efficient-deployments-bdc2ec06fe3f)
 
-## Overview
-This repository demonstrates the use of **DevOps tools** to implement Continuous Integration (CI) and Continuous Deployment (CD) for a Python application. The pipeline is automated using **Jenkins** and **Docker**, ensuring smooth deployment from development to production.
 
-The project contains:
-- A **Jenkinsfile** to define the CI/CD pipeline.
-- A **Dockerfile** to containerize the Python application.
-- Shell scripts to deploy and manage the application.
-- A **GitHub Actions workflow** for an alternate CI/CD option.
-- Configuration files for the application and pipeline settings.
+Optimizing Docker for edge computing ensures efficient deployments in resource-constrained environments. Key strategies include using lightweight base images like Alpine Linux to reduce size and dependencies, and leveraging multi-stage builds to separate build and production environments. Resource management with CPU and memory flags, cgroups, and localized data storage reduces latency and bandwidth usage. Microservices architecture minimizes compute power needs by deploying only essential services. Lightweight orchestration tools like K3s and Docker Swarm enhance container management with minimal overhead. By focusing on networking, storage, and resource constraints, these optimizations enable resilient, high-performance Docker applications for edge devices.
+
+# Blog 2  [Building and Managing Scalable Kubernetes Clusters with Infrastructure as Code](https://medium.com/@muhammadhammad58285/building-and-managing-scalable-kubernetes-clusters-with-infrastructure-as-code-1b16362f3182)
+
+Infrastructure as Code (IaC) combined with Kubernetes enables efficient management and scaling of containerized applications. IaC automates infrastructure provisioning and application deployment using tools like Terraform and Helm, ensuring consistency and reducing errors. Kubernetes provides a robust platform for orchestrating containers, allowing developers to focus on applications rather than infrastructure. By leveraging IaC, teams can rapidly deploy and scale clusters, automate service deployments, and manage resources effectively. Best practices include version control, automated CI/CD pipelines, modular design, and secure secrets management. This approach enhances agility, reliability, and scalability, driving innovation and operational efficiency in modern containerized environments.
+
+# My Resume
+
+## Muhammad Hammad
+### Contact Information
+[muhammadhammad58285@gmail.com](muhammadhammad58285@gmail.com)
+[Github](https://github.com/muhammad-hammad58285)
+Address Islamabad,Pakistan
+
+## **Objective**
+
+A highly motivated and passionate DevOps enthusiast with a solid foundation in software development, containerization, automation, and cloud computing. Seeking to leverage my expertise in designing scalable systems and automating workflows to deliver efficient and reliable solutions.
 
 ---
 
-## Setup Instructions
+## **Education**
 
-### 1. Clone the Repository
-Clone the repository to your local machine using the following command:
-```bash
-git clone https://github.com/your-username/project-repo.git
-cd project-repo
-```
+**BS Computer Science**  
+FAST University - 7th Semester  
+Expected Graduation: [June, 2025]
 
-### 2.Install Dependencies
-Ensure Python 3.9 and Docker are installed. If using Docker, make sure it's running.
+---
 
-Install Python dependencies:
-```pip install -r requirements.txt```
+## **Professional Experience**
 
-### 3. Docker Setup
-```docker build -t your-docker-hub-username/my-python-app .
-```
+### **QA Intern**  
+**Emumba**  
+*June 2024 – August 2024*  
 
-### 4. Run the App
-```docker run -d --name my-python-app -p 5000:5000 your-docker-hub-username/my-python-app
-```
+- Collaborated with QA teams to streamline testing using tools like **Cucumber**, **JUnit 5**, and **Selenium 4**.  
+- Implemented automation scripts to reduce manual testing time and improved build stability.  
+- Gained hands-on experience with testing microservices and debugging edge cases.  
 
-### 5. Jenkins Setup
-Jenkins Pipeline
-The Jenkinsfile defines a multi-stage pipeline that includes:
-Cloning the repository
-Installing dependencies inside a Docker container
-Running unit tests with pytest
-Building the Docker image for the application
-Pushing the image to Docker Hub
-Deploying the application using the deploy.sh script
-Configuration:
-DOCKER_REGISTRY: Update the Docker Hub username in the Jenkinsfile to your own.
-docker-credentials: Add Docker Hub credentials to Jenkins using Jenkins' credential manager.
-To create a new Jenkins pipeline:
+### **Lab Demonstrator**
+*Sept 2023 - Jan 2024*
+- Guided students of Data Structures through labs enhancing their learning pace and clearing their confusions about concepts and increasing their problem solving skills.
 
-Go to your Jenkins dashboard.
-Create a new Pipeline job.
-In the Pipeline section, select Pipeline script from SCM.
-Enter your Git repository URL and branch name.
-Save and run the pipeline.
-### 6. GitHub Actions (Alternative CI/CD)
-The .github/workflows/ci-cd.yml file defines an alternative GitHub Actions pipeline, which can be used instead of Jenkins:
+---
 
-This workflow runs on push events to the main branch.
-It installs Python dependencies, runs tests, builds a Docker image, and deploys the application.
-Update Docker credentials in GitHub Secrets (DOCKER_USERNAME and DOCKER_PASSWORD) for Docker login.
-### 7. Shell Scripts
-start.sh: Installs dependencies and starts the Python application.
-deploy.sh: Deploys the Docker container to the server, pulling the latest image from Docker Hub.
-clean.sh: Removes unused Docker containers and images.
-Run the deployment script manually or as part of the Jenkins pipeline:
+## **Projects**
 
-```
-./scripts/deploy.sh
-```
-### Configuration Files
 
-app_config.yml
+### InterExplorer: Semantic Search Engine for YouTube Videos
+[Link: HuggingFace Space](https://huggingface.co/spaces/afaqdean/InterExblorer)
 
-This file contains application-level configuration, such as environment settings and database credentials.
+Created a search engine using semantic search to query YouTube videos.
+Scraped YouTube for links and transcripts, vectorized text using a BERT sentence transformer, and uploaded the vectors to Pinecone.
+Used Pinecone API to search for the 3 most similar video entries based on the query text.
+The search engine provides YouTube links embedded with the exact timeframe of the query words.
+Dockerized and hosted the solution on Hugging Face.
+### **Signature Recognition Model**  
+- Developed a **CNN-based model** to identify handwritten signatures, achieving a peak accuracy of **87%** after optimizing data preprocessing and training.  
+- Improved scalability of training pipelines on resource-limited systems by optimizing batch sizes and training configurations.  
 
-```
-app:
-  name: My Python Application
-  version: 1.0.0
-  port: 5000
-  environment: production
+### **Automating Health Insurance Reminders**  
+- Designed and implemented an automation solution that reminded employees to update their health insurance dependents, recognized for its efficiency and innovation during a company-wide competition.  
 
-database:
-  host: localhost
-  port: 5432
-  username: admin
-  password: secret_password
-pipeline_config.yml
-```
-This file contains pipeline-related configurations, such as Docker image settings and deployment configurations.
+---
 
-```
-pipeline:
-  build:
-    image: python:3.9
-    dependencies:
-      - pytest
-      - Flask
-  test:
-    framework: pytest
-    coverage: true
-  deploy:
-    docker_registry: your-docker-hub-username
-    container_name: my-python-app
-    exposed_port: 5000
-```
-### Deployment
+## **Technical Skills**
 
-To deploy the application:
+### **DevOps & Cloud**  
+- **Containerization:** Docker, Docker Compose  
+- **Cloud Platforms:** Azure  
+- **CI/CD Tools:**  GitHub Actions, GitLab CI  
 
-Build the Docker image (if not done already).
-Run the deploy.sh script to deploy the app in the Docker container.
-Alternatively, the application is automatically deployed as part of the Jenkins pipeline.
+### **Programming & Automation**  
+- **Languages:** Python, Bash, JavaScript, C++, Kotlin, C#  
+- **Testing Frameworks:** Cucumber, JUnit 5, Selenium 4  
 
-### Notes
-This project assumes that you have Docker and Jenkins set up on your system. If you don't have them installed, please follow their official documentation to set them up.
-The repository is configured to push images to Docker Hub. Make sure to replace the username in the Jenkinsfile with your Docker Hub username and configure credentials for Docker login.
-If using GitHub Actions, ensure to set up Docker Hub secrets in your GitHub repository for automatic Docker login.
-### Conclusion
-This project demonstrates the key aspects of DevOps: automating the build, test, and deployment process using tools like Jenkins, Docker, and GitHub Actions. It shows how to create an efficient CI/CD pipeline and containerized deployment flow.
+### **Web Development**  
+- **Frameworks:** Flask, ASP.NET  
+- **Frontend:** Vue.js, React, styled-components, Bootstrap  
+- **Databases:** MongoDB, SQL, Firebase  
+
+---
+
+
 
